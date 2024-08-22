@@ -1,9 +1,10 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
-import { ThemeProvider } from 'styled-components';
-import { lightTheme, darkTheme } from 'eka-styles';
+import { ThemeProvider as StyledThemeProvider } from 'styled-components';
+import { getTheme } from 'eka-styles';
+import { Theme, ThemeName } from 'eka-styles';
 
 interface ThemeContextProps {
-  theme: typeof lightTheme;
+  theme: Theme;
   toggleTheme: () => void;
 }
 
@@ -22,17 +23,19 @@ interface ThemeProviderProps {
 }
 
 export const CustomThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const [theme, setTheme] = useState(lightTheme);
+  const [themeName, setThemeName] = useState<ThemeName>('base'); // Commencez avec le thème 'base'
 
   const toggleTheme = () => {
-    setTheme(theme === lightTheme ? darkTheme : lightTheme);
+    setThemeName(prevThemeName => (prevThemeName === 'base' ? 'dark' : 'base'));
   };
+
+  const theme = getTheme(themeName);
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <ThemeProvider theme={theme}>
+      <StyledThemeProvider theme={theme}>
         {children}
-      </ThemeProvider>
+      </StyledThemeProvider>
     </ThemeContext.Provider>
   );
 };
