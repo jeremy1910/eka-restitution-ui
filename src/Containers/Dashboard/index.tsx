@@ -6,11 +6,15 @@ function DashBoard() {
 
   const { t } = useTranslation();
 
+  const Kpis = [
+
+  ]
+
   return (
     <div>
       <h2>{t('Welcome to React')}</h2>
         <p>Dashboard</p>
-        <Button label='button'></Button>
+
     </div>
   )
 }
