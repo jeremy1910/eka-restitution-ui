@@ -23,7 +23,7 @@ interface ThemeProviderProps {
 }
 
 export const CustomThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const [themeName, setThemeName] = useState<ThemeName>('base'); // Commencez avec le thème 'base'
+  const [themeName, setThemeName] = useState<ThemeName>('base');
 
   const toggleTheme = () => {
     setThemeName(prevThemeName => (prevThemeName === 'base' ? 'dark' : 'base'));
