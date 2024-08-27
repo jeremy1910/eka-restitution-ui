@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import { getTheme } from 'eka-styles';
 import { Theme, ThemeName } from 'eka-styles';
@@ -30,6 +30,11 @@ export const CustomThemeProvider: React.FC<ThemeProviderProps> = ({ children }) 
   };
 
   const theme = getTheme(themeName);
+
+  useEffect(() => {
+
+    document.body.style.backgroundColor = theme.colors.baseBackground;
+  }, [themeName]);
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>

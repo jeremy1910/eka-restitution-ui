@@ -8,7 +8,7 @@ function EkaRoutes() {
     <Router>
       <Routes>
         <Route path="/scenarios" element={<Scenarios />} />   
-        <Route path="/" element={<Scenarios />} />
+        <Route path="/" element={<DashBoard />} />
       </Routes>
     </Router>
   )
