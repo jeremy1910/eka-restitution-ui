@@ -5,6 +5,7 @@ import 'eka-styles/dist/common/styles/reset.css';
 import TopBar from './Containers/TopBar';
 import { CustomThemeProvider } from './Contexts/ThemeContext';
 import { AuthProvider, QueryClient, QueryClientProvider } from 'eka-components';
+import Layout from './Containers/Layout';
 
 
 const App: React.FC = () => {
@@ -22,8 +23,9 @@ const App: React.FC = () => {
     <CustomThemeProvider>
       <QueryClientProvider client={queryClient}>
         <AuthProvider>
-          <TopBar />
-          <EkaRoutes />
+          <Layout>
+            <EkaRoutes />
+          </Layout>
         </AuthProvider>
       </QueryClientProvider>
     </CustomThemeProvider>
