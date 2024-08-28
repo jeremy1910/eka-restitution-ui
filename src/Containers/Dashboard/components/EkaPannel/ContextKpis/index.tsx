@@ -1,5 +1,5 @@
 import { Grid } from '@mui/material'
-import { EkaKPICard } from 'eka-components'
+import { EkaKPICard, EkaKPIScore } from 'eka-components'
 import React from 'react'
 
 function ContextKpis() {
@@ -15,7 +15,23 @@ function ContextKpis() {
         <EkaKPICard title="Applications" kpi={8} />
       </Grid>
       <Grid item xs={8} sm={4} md={2}>
-        <EkaKPICard title="Applications" kpi={8} />
+        <EkaKPIScore title="Realized Tests" kpi1={{
+          title: 'This Month',
+          kpi: 500000,
+          variant: {
+            percent: -5.6,
+            label: 'of last month',
+          }
+        }}
+          kpi2={{
+            title: 'Last Month',
+            kpi: 2500000,
+            variant: {
+              percent: 11,
+              label: 'of the month before',
+            }
+          }}
+        />
       </Grid>
       <Grid item xs={8} sm={4} md={2}>
         <EkaKPICard title="Applications" kpi={8} />

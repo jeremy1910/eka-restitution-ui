@@ -9,9 +9,7 @@ function DashBoard() {
   const { t } = useTranslation();
 
   return (
-    <div>
-      <h2>{t('Welcome to React')}</h2>
-      <p>Dashboard</p>
+    <div style={{ padding: '15px' }}>
       <EkaPannel />
       {/* <Grid container columns={8}>
         <Grid item xs={4} sm={2} md={1}>
@@ -228,7 +226,7 @@ function DashBoard() {
         
       </Box> */}
 
-      
+
 
     </div>
   )
